@@ -41,8 +41,6 @@ int main()
 
             else if (event.mouseButton.button == sf::Mouse::Left && event.type == sf::Event::MouseButtonReleased)
             {
-                std::cout << "\nsX: " << startPosition.x << ", sY: " << startPosition.y << std::endl;
-                std::cout << "eX: " << endPosition.x << ", eY: " << endPosition.y << std::endl;
                 drawing = false;
             }
         }
@@ -50,9 +48,7 @@ int main()
         if (drawing == true)
         {
             sf::Vector2i mp = sf::Mouse::getPosition(window);
-            std::cout << mp.x << ", " << mp.y << std::endl;
             endPosition = static_cast<sf::Vector2f>(mp);
-
             rSize.x = endPosition.x - startPosition.x;
             rSize.y = endPosition.y - startPosition.y;
         }
