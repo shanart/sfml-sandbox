@@ -9,11 +9,17 @@ int wHeight = 480;
 int main()
 {
     // Main window
-    sf::RenderWindow window(sf::VideoMode(wWidth, wHeight), "First window");
+    sf::RenderWindow window(sf::VideoMode(wWidth, wHeight), "Selection box");
 
-    // objects
+    sf::RectangleShape r1(sf::Vector2f(160.0f, 140.0f));
+    r1.setFillColor(sf::Color::Blue);
+    r1.setPosition(sf::Vector2f(120.0f, 50.0f));
+
+    sf::Color rectangleColor = sf::Color(0, 255, 21, 10.5); // half transparent green color
     sf::RectangleShape rectangle(sf::Vector2f(0, 0));
-    rectangle.setFillColor(sf::Color::Green);
+    rectangle.setFillColor(rectangleColor);
+    rectangle.setOutlineColor(sf::Color::Green);
+    rectangle.setOutlineThickness(1.25f);
 
     bool drawing = false;
     sf::Vector2f rSize = sf::Vector2f(0.0f, 0.0f);
@@ -39,7 +45,8 @@ int main()
                 }
             }
 
-            else if (event.mouseButton.button == sf::Mouse::Left && event.type == sf::Event::MouseButtonReleased)
+            else if (event.mouseButton.button == sf::Mouse::Left &&
+                     event.type == sf::Event::MouseButtonReleased)
             {
                 drawing = false;
             }
@@ -58,6 +65,7 @@ int main()
         rectangle.setSize(rSize);
         rectangle.setPosition(startPosition);
 
+        window.draw(r1);
         window.draw(rectangle);
         window.display();
     }
