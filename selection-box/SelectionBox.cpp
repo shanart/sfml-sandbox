@@ -17,6 +17,11 @@ SelectionBox::SelectionBox()
     rectangle.setOutlineThickness(outlineThickness);
 }
 
+SelectionBox::~SelectionBox()
+{
+    selected_items.clear();
+}
+
 void SelectionBox::startDrawing()
 {
     drawing = true;
@@ -64,4 +69,15 @@ void SelectionBox::drawBox(sf::RenderWindow &window)
     rectangle.setPosition(startPosition);
 
     window.draw(rectangle);
+}
+
+void SelectionBox::addToSelected(Selectable &item)
+{
+    selected_items.push_back(item);
+}
+
+std::vector<Selectable> SelectionBox::getSelectedItems() const
+{
+
+    return selected_items;
 }
