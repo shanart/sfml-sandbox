@@ -22,6 +22,11 @@ SelectionBox::~SelectionBox()
     selected_items.clear();
 }
 
+int SelectionBox::selectedItemsCount() const
+{
+    return selected_items.size();
+}
+
 void SelectionBox::startDrawing()
 {
     drawing = true;

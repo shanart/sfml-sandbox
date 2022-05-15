@@ -38,6 +38,7 @@ private:
 public:
     SelectionBox();
     ~SelectionBox();
+    int selectedItemsCount() const;
 
     void startDrawing();
     void endDrawing();
