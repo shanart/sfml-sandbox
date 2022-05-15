@@ -6,16 +6,28 @@
 class SelectionBox
 {
 private:
-    //  = sf::Color(0, 255, 21, 10.5);
-    sf::Color r_color;
-    //  = sf::Vector2f(0.0f, 0.0f);
-    sf::Vector2f r_size;
+    sf::RectangleShape rectangle;
+
+    // appearence
+    sf::Color backgroundColor;
+    sf::Color outlineColor;
+    double outlineThickness;
+
+    // sizes
+    sf::Vector2f size;
+    sf::Vector2f startPosition;
+    sf::Vector2f endPosition;
 
 public:
+    bool drawing;
     SelectionBox();
 
-    void start_drawing();
-    void end_drawing();
+    void startDrawing();
+    void endDrawing();
+    bool isDrawing() const;
+
+    void listen_events(const sf::Event &event, const sf::RenderWindow &window);
+    void drawBox(sf::RenderWindow &window);
 };
 
 #endif // SELECTION_BOX_H_
