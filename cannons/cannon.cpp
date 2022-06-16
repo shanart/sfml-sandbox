@@ -7,15 +7,16 @@ Cannon::Cannon()
     health = 100;
 }
 
-Cannon::Cannon(int ammo_ammount)
+Cannon::Cannon(Payload payload)
 {
-    if (ammo_ammount > MAX_AMMO)
+    // TODO: Check bulet types before load
+    if (payload.amount > MAX_AMMO)
     {
         ammo = MAX_AMMO;
     }
     else
     {
-        ammo = ammo_ammount;
+        ammo = payload.amount;
     }
 }
 
@@ -29,7 +30,7 @@ void Cannon::shoot()
     if (ammo > 0)
     {
         ammo -= 1;
-        std::cout << "Cannon shooting. Ammo: " << ammo  << std::endl;
+        std::cout << "Cannon shooting. Ammo: " << ammo << std::endl;
     }
     else
     {
@@ -37,9 +38,9 @@ void Cannon::shoot()
     }
 }
 
-void Cannon::load_ammo(int ammo_amount)
+void Cannon::load_ammo(Payload payload)
 {
-    ammo += ammo_amount;
+    ammo += payload.amount;
     if (ammo > MAX_AMMO)
     {
         ammo = MAX_AMMO;

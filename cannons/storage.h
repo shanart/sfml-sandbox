@@ -3,12 +3,14 @@
 #include <iostream>
 #include <vector>
 
-typedef struct {
+typedef struct
+{
     std::string name;
     int damage;
 } Bullet;
 
-typedef struct {
+typedef struct
+{
     Bullet ammunition_type;
     int amount;
 } Payload;
@@ -30,6 +32,5 @@ public:
     void show_storage() const;
     bool fill_storage(Payload p);
 };
-
 
 #endif // STORAGE_H_
