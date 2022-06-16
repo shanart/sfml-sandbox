@@ -1,21 +1,26 @@
 #include <iostream>
-#include "storage.h"
+#include <SFML/Graphics.hpp>
+
+int wWidth = 640;
+int wHeight = 480;
 
 int main()
 {
+    sf::RenderWindow window(sf::VideoMode(wWidth, wHeight), "Cannons, loader and storage");
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                window.close();
+            }
+        }
 
-    Bullet regular = {"regular", 10};
-    Payload p_payload = {regular, 40};
+        window.clear(sf::Color::Black);
+        window.display();
+    }
 
-    Bullet penetr = {"penetration", 20};
-    Payload p_penetr_payload = { penetr, 20};
-    
-    Storage storage = Storage();
-
-    storage.fill_storage(p_payload);
-    storage.fill_storage(p_penetr_payload);
-  
-    storage.show_storage();
-    
     return 0;
 }

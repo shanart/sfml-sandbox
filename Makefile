@@ -1,6 +1,12 @@
 CC = g++
 FLAGS=-lsfml-graphics -lsfml-window -lsfml-system
-FILES=selection-box/main.cpp selection-box/SelectionBox.cpp
+
+# SELECTION BOX
+# FILES=selection-box/main.cpp selection-box/SelectionBox.cpp
+
+# CANNONS
+FILES=cannons/main.cpp
+
 BIN=bin/main
 
 build:
